@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
 body { 
 	font-family: 'Droid Serif'; 
@@ -12,5 +11,12 @@ h1, h2, h3 {
 }
 
 .remark-code, .remark-inline-code {
-	font-family: 'Ubuntu Mono'; 
+	font-size: 18px;
+	font-family: Hack, monospace;
+}
+
+.remark-inline-code {
+	padding: .2em;
+	background: #e7e7e7;
+	border-radius: 0.5rem;
 }
