@@ -2,7 +2,7 @@ let slideshow = remark.create({
 	sourceUrl: 'main.md',
 
 	/* highlight */
-	highlightLanguage: 'c',
+	highlightLanguage: 'bash',
 	highlightStyle: 'zenburn',
 	highlightLines: 'true',
 	highlightSpans: 'false',
