@@ -128,7 +128,7 @@ Another important feature provided by most shells is **shell scripting**. A shel
 # Desktop environment
 ## Windowing systems
 
-Your video enviroment is controlled by the video card in the computer and the monitor. In order to display fancy graphics, the operating system needs to know how to talk to both of them. 
+Your video enviroment is controlled by the video card in the computer and the monitor. In order to display fancy graphics, the operating system needs to know how to talk to both of them.
 
 Windowing systems are responsable to present graphics. They are low-level programs that work directly with the video card and and monitor.
 

@@ -4,12 +4,14 @@ shopt -s nullglob
 array=(*.md)
 a_size=${#array[@]}
 
+apost=\'
+
 for ((i = 0; i < a_size; ++i)); do
   if [[ i -eq a_size-1 ]]; then
-    cat ${array[$i]} >> main
+    sed 's/src="..\//src="/g; s/src='$apost'..\//src='$apost'/g' ${array[$i]} >> main
     break
   fi
-  cat ${array[$i]} >> main
+  sed 's/src="..\//src="/g; s/src='$apost'..\//src='$apost'/g' ${array[$i]} >> main
   echo -e "\n---\n" >> main
 done
 
