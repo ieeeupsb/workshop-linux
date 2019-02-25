@@ -279,6 +279,3 @@ Sometimes you forget the exact name for a command. No problem! You can tell `man
 $man -k printf
 ```
 
-
----
-
