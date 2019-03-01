@@ -49,7 +49,7 @@ The *kernel* creates and manages the virtual memory (physical memory + *swap*)
 
 It maintains a table of memory pages that indicates which pages are in physical memory and which are *swapped* to disk
 
-It's *kernel* responsability to *swap* *pages* from disk to physical memory and vice versa
+It is the *kernel*'s responsability to *swap* *pages* from disk to physical memory and vice versa
 
 The *kernel* must allocate memory for each *process*
 
@@ -74,7 +74,7 @@ Linux utilizes *run levels*. They tell `init` to run only certain types of proce
 # The Linux kernel
 ## Hardware management
 
-A *device driver* or *driver* is a piece of code required by *kernel* to communicate with hardware devices. It acts as middle man between applications and hardware.
+A *device driver* or *driver* is a piece of code required by the *kernel* to communicate with hardware devices. It acts as middle man between applications and hardware.
 
 Two ways for inserting *driver* code in Linux *kernel*:
 - Drivers compiled in the *kernel*
@@ -89,7 +89,7 @@ The second is the most common practice by users, as allows to insert *drivers* c
 
 A *filesystem* controls how data is stored, for example, in a disk.
 
-How to tell if a block of data is a image? Where does the image start and end? How to add metadata such a filename, content-type, lenght? How to manage space? That's up to the filesystem to specify.
+How to tell if a block of data is a image? Where does the image start and end? How to add metadata such a filename, content-type, length? How to manage space? That's up to the filesystem to specify.
 
 Linux *kernel* supports a wide range of filesystems. It has it's own: Linux Extended Filesystem (*ext*). There's a fourth version, *ext4*.
 
@@ -130,19 +130,25 @@ Another important feature provided by most shells is **shell scripting**. A shel
 
 Your video enviroment is controlled by the video card in the computer and the monitor. In order to display fancy graphics, the operating system needs to know how to talk to both of them.
 
-Windowing systems are responsable to present graphics. They are low-level programs that work directly with the video card and and monitor.
+Windowing systems are responsable for presenting graphics. They are low-level programs that work directly with the video card and and monitor.
 
+## Examples
 Popular window systems: **X Window Sytem (X11)**, **Wayland**
 
 ---
+class: split-50
 
 # Desktop environment
 ## Examples
 
-- KDE
-- Gnome
-- XFCE
-- i3
+.column[
+- KDE .de[![KDE](images/KDE_Plasma_5.png)]
+- Gnome .de[![KDE](images/gnome.png)]
+]
+.columnl[
+- XFCE .de[![XFCE](images/xfce.png)]
+- i3 .de[![i3](images/i3.jpg)]
+]
 
 ---
 
