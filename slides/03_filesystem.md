@@ -193,6 +193,20 @@ You can also use `touch` to create files with specific modification times or cha
 ---
 
 # Linux filesystem
+## Reading files
+
+You can read the contents of a file using the `cat` command.
+
+```bash
+$cat <filename>
+$cat main.c  # will print the contents of main.c
+```
+
+This can be used when you simply want to know what the file holds.
+
+---
+
+# Linux filesystem
 ## Deleting files
 
 You can delete files and directories with `rm`
