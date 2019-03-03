@@ -81,6 +81,8 @@ printf (3)           - formatted output conversion
 printf (3p)          - print formatted output
 ```
 
+**Tip**: You can accomplish the same result running `whatis <thing>`
+
 ---
 
 # The manual
