@@ -125,3 +125,30 @@ Or...you could just do this!
 ```bash
 ls ~/Music | grep -i ".mp3" > songs.txt
 ```
+
+---
+
+# Feature: conditional expressions
+
+Sometimes, you might want to run a certain command if certain conditions are met.
+
+The most common way to do this is using the **`&&`** operator.
+This operator only runs the second program if and only if the first one succeeded.
+
+Example:
+```bash
+# move main.c into Documents/ and speak in case of success
+mv move.c Documents/ && espeak "file moved successfully"
+```
+
+---
+
+# Feature: conditional expressions
+
+Like the `&&` operator, we also have the following operators available, each with its own meaning:
+
+```bash
+A; B        # Run A and then B, regardless of success of A
+A && B      # Run B if and only if A succeeded
+A || B      # Run B if and only if A failed
+```
