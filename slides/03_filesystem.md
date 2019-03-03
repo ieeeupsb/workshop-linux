@@ -263,6 +263,26 @@ cp: overwrite 'dst/filename.txt'?
 ---
 
 # Linux filesystem
+## Moving and renaming files
+
+You can move files with `mv`.
+
+`mv` is also used to rename a file's name, because moving the file into another
+file with a different name is the same as simply renaming it.
+
+```bash
+$mv <filename> <destination>
+
+# move file called main.c into directory folder/
+$mv main.c folder/
+
+# rename xample.txt as example.txt
+$mv xample.txt example.txt
+```
+
+---
+
+# Linux filesystem
 ## Using wildcards
 
 You can speed up what you're trying to do with the use of **wildcards**.
