@@ -152,3 +152,10 @@ A; B        # Run A and then B, regardless of success of A
 A && B      # Run B if and only if A succeeded
 A || B      # Run B if and only if A failed
 ```
+
+--
+
+With these new operators, we can extend our example as:
+```bash
+mv move.c Documents/ && espeak "file moved sucessfully" || espeak "oh no! file was not moved"
+```
