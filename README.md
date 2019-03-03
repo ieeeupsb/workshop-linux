@@ -63,43 +63,32 @@ Try the following command sequence:
 
 ## File permissions
 
- 1. Describe three different ways of setting the permissions on a file or directory to `r--r--r--`. Create a file and see if this works.
- 1. Team up with a partner. Copy `/bin/sh` to your home directory. Type `chmod +s sh`. Check the permissions on sh in the directory listing. Now ask your partner to change into your home directory and run the program ./sh. Ask them to run the id command. What's happened?  Your partner can type exit to return to their shell.
- 1. What would happen if the system administrator created a sh file in this way? Why is it sometimes necessary for a system administrator to use this feature using programs other than sh?
- 1. Delete sh from your home directory (or at least to do a chmod -s sh).
- 1. Modify the permissions on your home directory to make it completely private. Check that your partner can't access your directory. Now put the permissions back to how they were.
- 1. Type umask 000 and then create a file called world.txt containing the words "hello world". Look at the permissions on the file. What's happened? Now type umask 022 and create a file called world2.txt. When might this feature be useful?
- 1. Create a file called "hello.txt" in your home directory using the command cat -u > hello.txt. Ask your partner to change into your home directory and run tail -f hello.txt. Now type several lines into hello.txt. What appears on your partner's screen?
  1. Use find to display the names of all files in the /home subdirectory tree. Can you do this without displaying errors for files you can't read?
  1. Use find to display the names of all files in the system that are bigger than 1MB.
  1. Use find and file to display all files in the /home subdirectory tree, as well as a guess at what sort of a file they are. Do this in two different ways.
  1. Use grep to isolate the line in /etc/passwd that contains your login details.
  1. Use find and grep and sort to display a sorted list of all files in the /home subdirectory tree that contain the word hello somewhere inside them.
  1. Use locate to find all filenames that contain the word emacs. Can you combine this with grep to avoid displaying all filenames containing the word lib?
- 1. Create a file containing some lines that you think would match the regular expression: (^[0-9]{1,5}[a-zA-z ]+$)|none and some lines that you think would not match. Use egrep to see if your intuition is correct.
- 1. Archive the contents of your home directory (including any subdirectories) using tar and cpio. Compress the tar archive with compress, and the cpio archive with gzip. Now extract their contents.
+ 1. Create a file containing some lines that you think would match the regular expression: `^[0-9]{1,5}[a-zA-z ]+$` and some lines that you think would not match. Use egrep to see if your intuition is correct.
+ 1. Archive the contents of your home directory (including any subdirectories) using tar. Now extract its contents.
  1. On Linux systems, the file /dev/urandom is a constantly generated random stream of characters. Can you use this file with od to printout a random decimal number?
  1. Type mount (with no parameters) and try to interpret the output.
 
 
 ## Processes and standard input/outputs
 
-
- 1. Archive the contents of your home directory using tar. Compress the tar file with gzip. Now uncompress and unarchive the .tar.gz file using cat, tar and gzip on one command line.
- 1. Use find to compile a list of all directories in the system, redirecting the output so that the list of directories ends up in a file called directories.txt and the list of error messages ends up in a file called errors.txt.
- 1. Try the command sleep 5. What does this command do?
- 1. Run the command in the background using &.
- 1. Run sleep 15 in the foreground, suspend it with Ctrl-z and then put it into the background with bg. Type jobs. Type ps. Bring the job back into the foreground with fg.
- 1. Run sleep 15 in the background using &, and then use kill to terminate the process by its job number. Repeat, except this time kill the process by specifying its PID.
- 1. Run sleep 15 in the background using &, and then use kill to suspend the process. Use bg to continue running the process.
- 1. Startup a number of sleep 60 processes in the background, and terminate them all at the same time using the pkill command.
- 1. Use ps, w and top to show all processes that are executing.
- 1. Use ps -aeH to display the process hierarchy. Look for the init process. See if you can identify important system daemons. Can you also identify your shell and its subprocesses?
- 1. Combine ps -fae with grep to show all processes that you are executing, with the exception of the ps -fae and grep commands.
- 1. Start a sleep 300 process running in the background. Log off the server, and log back in again. List all the processes that you are running. What happened to your sleep process? Now repeat, except this time start by running nohup sleep 300.
- 1. Multiple jobs can be issued from the same command line using the operators ;, && and ||. Try combining the commands cat nonexistent and echo hello using each of these operators. Reverse the order of the commands and try again. What are the rules about when the commands will be executed?
- 1. What does the xargs command do? Can you combine it with find and grep to find yet another way of searching all files in the /home subdirectory tree for the word hello?
- 1. What does the cut command do? Can you use it together with w to produce a list of login names and CPU times corresponding to each active process? Can you now (all on the same command line) use sort and head or tail to find the user whose process is using the most CPU?
+ 1. Use `find` to compile a list of all directories in the system, redirecting the output so that the list of directories ends up in a file called `directories.txt` and the list of error messages ends up in a file called `errors.txt`.
+ 1. Try the command `sleep 5`. What does this command do?
+ 1. Run the command in the background using `&`.
+ 1. Run `sleep 15` in the foreground, suspend it with _Ctrl-z_ and then put it into the background with `bg`. Type jobs. Type ps. Bring the job back into the foreground with `fg`.
+ 1. Run `sleep 15` in the background using `&`, and then use `kill` to terminate the process by its job number. Repeat, except this time `kill` the process by specifying its PID.
+ 1. Run `sleep 15` in the background using `&`, and then use `kill` to suspend the process. Use `bg` to continue running the process.
+ 1. Startup a number of `sleep 60` processes in the background, and terminate them all at the same time using the `pkill` command.
+ 1. Use `ps`, `w` and `top` to show all processes that are executing.
+ 1. Use `ps -aeH` to display the process hierarchy. Look for the init process. See if you can identify important system daemons. Can you also identify your shell and its subprocesses?
+ 1. Combine `ps -fae` with grep to show all processes that you are executing, with the exception of the `ps -fae` and grep commands.
+ 1. Start a `sleep 300` process running in the background. Log off of your computer, and log back in again. List all the processes that you are running. What happened to your sleep process? Now repeat, except this time start by running `nohup sleep 300`.
+ 1. Multiple jobs can be issued from the same command line using the operators ;, && and ||. Try combining the commands `cat nonexistent` and `echo hello` using each of these operators. Reverse the order of the commands and try again. What are the rules about when the commands will be executed?
 
 ## Messing around
 
