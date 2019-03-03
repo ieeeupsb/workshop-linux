@@ -193,6 +193,24 @@ You can also use `touch` to create files with specific modification times or cha
 ---
 
 # Linux filesystem
+## Deleting files
+
+You can delete files and directories with `rm`
+
+```bash
+$rm <filename>
+
+# delete file called main.c
+$rm main.c
+
+# delete directory called example/
+$rm -rf example/
+```
+To delete an entire folder and it's respective contents, we need to pass in the arguments `r` (recursive, delete each interior file) and `f` (force, as we don't want to be asked 'are you sure?' on each deletion)
+
+---
+
+# Linux filesystem
 ## Copying files
 
 To copy files and folders from one destination to another, you use `cp`.
