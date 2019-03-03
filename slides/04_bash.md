@@ -52,3 +52,43 @@ These are just a few examples of what you might want to do in your day-by-day us
 Either it's something pretty easy or something quite complicated, we can *probably* guarantee that there's
 a bash command for it.
 
+---
+
+# Feature: redirection
+
+Redirection is a way of **sending the output of a program** to somewhere.
+The most common use of redirection is when we want to save the output of
+a program into a file.
+
+There are 2 main operators:
+- **>**, sends the output and overwrites the whole file
+- **>>**, appends the output to the file
+
+For example:
+```bash
+# this prints out the date and time
+date
+
+# this saves the output of that program into a file called now.txt
+date > now.txt     # now.txt was created
+
+# this appends another date into the file
+date >> now.txt
+```
+
+After running all of these commands, you should have a file with 2 lines,
+each with the current date and time.
+
+---
+# Feature: redirection
+
+Both **>** and **>>** would create the file, if it didn't already exist.
+
+The main difference is that **>** **would overwrite the whole file** with that new information, while **>>** **would
+just add the new information** in new lines.
+
+---
+
+# Feature: pipes
+
+A pipe is a way of using the **output of a program** as the **input for another program**.
