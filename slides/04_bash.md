@@ -92,3 +92,36 @@ just add the new information** in new lines.
 # Feature: pipes
 
 A pipe is a way of using the **output of a program** as the **input for another program**.
+
+The operator for piping is **`|`**.
+
+TODO: Example
+
+---
+
+# Feature: multiplicity
+
+In bash, there isn't much of a limit of what you can do.
+We talked about using redirection and piping, but we didn't mention
+that you can combine these two.
+
+Bash let's you combine whatever you want to combine.
+
+Here's an example
+
+---
+
+# Example of multiplicity
+
+Imagine a friend of yours asked "what songs do you have downloaded?"
+
+--
+
+To reply to this question, you could go into your *windows explorer*, check out every .mp3 file you have in your music folder, and tell him.
+
+--
+
+Or...you could just do this!
+```bash
+ls ~/Music | grep -i ".mp3" > songs.txt
+```
