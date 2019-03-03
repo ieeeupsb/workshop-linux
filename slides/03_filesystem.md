@@ -91,7 +91,7 @@ Assume **you are in the `current` directory.**
 
 In order to go to the upper level, `parent` directory:
 
-```
+```bash
 $pwd # /.../parent/current
 $cd ..
 $pwd # /.../parent
@@ -176,8 +176,6 @@ A parte dos devices tem haver com device files
 
 **Tip**: You can mix options parameters like `ls -l -a -R`. Moreover, you don't need to type them separately, you can use `ls -laR`.
 
-// TODO: talk about wildcards?
-
 ---
 
 # Linux filesystem
@@ -229,3 +227,18 @@ cp: overwrite 'dst/filename.txt'?
 ## Copying files
 
 **Tip**: In the previous example the directory name was followed by a forward slash, `/`. You only need to do it if there's ambiguity, i.e., there's a filename and a folder with the same name.
+
+---
+
+# Linux filesystem
+## Using wildcards
+
+You can speed up what you're trying to do with the use of **wildcards**.
+A wildcard is a pattern you define accordingly to what you need.
+
+| Wildcard | Meaning | Example |
+|-|-|-|
+| `*` | Matches any characters | `cp *.pdf ~` |
+| `?` | Matches any single character | `cat fe?p.txt` |
+| `[]` | Matches any characters inside | `cp [b, c]at ~` |
+| `{}` | Use multiple wildcards | `cp {*.pdf, *.png} ~` |
