@@ -295,21 +295,6 @@ $cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
 ---
 
 # Linux filesystem
-## Using wildcards
-
-You can speed up what you're trying to do with the use of **wildcards**.
-A wildcard is a pattern you define accordingly to what you need.
-
-| Wildcard | Meaning | Example |
-|-|-|-|
-| `*` | Matches any characters | `cp *.pdf ~` |
-| `?` | Matches any single character | `cat fe?p.txt` |
-| `[]` | Matches any characters inside | `cp [b, c]at ~` |
-| `{}` | Use multiple wildcards | `cp {*.pdf, *.png} ~` |
-
----
-
-# Linux filesystem
 ## Moving and renaming files
 
 You can move files with `mv`.
