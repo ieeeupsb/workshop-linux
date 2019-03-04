@@ -121,7 +121,7 @@ $cd child
 # Linux filesystem
 ## Listing files and directories
 
-Use ls to list files and directories located in your current directory
+Use `ls` to list files and directories located in your current directory
 
 The list is apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
 
@@ -177,6 +177,7 @@ A parte dos devices tem haver com device files
 **Tip**: You can mix options parameters like `ls -l -a -R`. Moreover, you don't need to type them separately, you can use `ls -laR`.
 
 // TODO: talk about wildcards?
+// TODO: Falar já de tab autocomplete?
 
 ---
 
@@ -197,7 +198,7 @@ You can also use `touch` to create files with specific modification times or cha
 # Linux filesystem
 ## Copying files
 
-To copy files and folders from one destination to another, you use `cp`.
+To copy files and folders from one location to another, you use `cp` command.
 
 ```bash
 $cp <source> <destination>
@@ -209,12 +210,29 @@ $cp filename.txt dst/
 
 If the `source` is a file and destination is a folder, the file is copied to that folder. The example above copies the file `filename.txt` to the folder `dst`.
 
+**Note 1:** Notice the **forward slash after `dst`**. It tells that `dst` is a directory. If you run `cp filename.txt dst` it copies `filename.txt` to a file named `dst` in the current directory.
+
+**Note 2:** The `cp` won't create directories, **it only supports pre-existing directories**. You can use `mkdir` before `cp`.
+
 ---
 
 # Linux filesystem
 ## Copying files
 
-What if the folder `dst/` has a file named `filename.txt`? By default, the file would be overwritten silently. If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
+The previous example keeps the original filename, but **you can copy the file and give it a new name**.
+
+```bash
+$cp filename.txt dst/new.txt
+```
+
+---
+
+# Linux filesystem
+## Copying files
+
+What if the folder `dst/` has a file named `filename.txt`? **By default, the file would be overwritten silently.**
+
+If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
 
 ```bash
 $cp -i filename.txt dst/
@@ -226,6 +244,18 @@ cp: overwrite 'dst/filename.txt'?
 ---
 
 # Linux filesystem
-## Copying files
+## Copying folders
 
-**Tip**: In the previous example the directory name was followed by a forward slash, `/`. You only need to do it if there's ambiguity, i.e., there's a filename and a folder with the same name.
+In order to copy folders and its content you must use the recursive option, `-r`.
+
+```bash
+$cp -r ~/Documents/ /media/backup
+```
+
+The `/media/backup` now has a `Documents` folder with a copy of all files and sub-folders.
+
+You can set a new destination folder name as well.
+
+```bash
+$cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
+```
