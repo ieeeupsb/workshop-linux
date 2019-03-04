@@ -210,24 +210,6 @@ This can be used when you simply want to know what the file holds.
 ---
 
 # Linux filesystem
-## Deleting files
-
-You can delete files and directories with `rm`
-
-```bash
-$rm <filename>
-
-# delete file called main.c
-$rm main.c
-
-# delete directory called example/
-$rm -rf example/
-```
-To delete an entire folder and it's respective contents, we need to pass in the arguments `r` (recursive, delete each interior file) and `f` (force, as we don't want to be asked 'are you sure?' on each deletion)
-
----
-
-# Linux filesystem
 ## Copying files
 
 To copy files and folders from one location to another, you use `cp` command.
@@ -312,3 +294,60 @@ $mv main.c folder/
 $mv xample.txt example.txt
 ```
 
+**Tip:** Like the `cp` command, you can use the `-i` option to be asked before overwriting existing files.
+
+---
+
+# Linux filesystem
+## Deleting files
+
+You can delete files with `rm`.
+
+```bash
+$rm <filename>
+
+# delete file called main.c
+$rm main.c
+```
+
+**IMPORTANT**: Think twice before removing a file. The shell doesn't have a trashcan. Once you remove it, it's gone "forever".
+
+A good practice is to use the `-i` parameter. It will prompt before removing each file.
+
+However, if you are removing a group of files, the `-i` can be tedious.
+
+---
+
+# Linux filesystem
+## Removing directories
+
+The `rm` can be used to remove directories as well. You must use the `-r` or `-R` option, which means recursive.
+
+The commands descends to the directory and removes the files. If it finds sub-directories, it descends to them and removes the files. If no further content is found, it deletes the directory itself.
+
+You can use the `-i` option as well. It will prompt before desceding to any directory. If you confirm, it descends and deletes all files. If no more content is found in that folder, it finally asks if it should delete the directory itself.
+
+If you are deleting large amounts of files and sub directories, the `-i` option can be extremely tedious! Perhaps, you should use a tool such `tree` to get a structured overview of the contents or `ls -r` (`tree` doesn't belong to GNU utilities and might not be installed out of the box).
+
+---
+
+# Linux filesystem
+## Creating directories
+
+To create a new directory/folder you use the `mkdir`.
+
+```bash
+$mkdir demo
+$ls -l
+total 4
+drwxr-xr-x 2 ieee ieee 4096 mar  4 17:01 demo
+```
+
+If you attempt to create a bulk of new directories, you get an error:
+
+```bash
+$mkdir dir/subdir/subsubdir
+mkdir: cannot create directory ‘dir/subdir/subsubdir’: No such file or directory
+```
+
+To make it work, you use the `-p` option, which means *parents*: make parent directories as needed.
