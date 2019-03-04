@@ -1,3 +1,9 @@
+class: center, middle, inverse 
+
+# Linux Filesystem
+
+---
+
 # Linux filesystem
 
 **Windows assigns a letter to a each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
@@ -351,3 +357,89 @@ mkdir: cannot create directory ‘dir/subdir/subsubdir’: No such file or direc
 ```
 
 To make it work, you use the `-p` option, which means *parents*: make parent directories as needed.
+
+---
+
+# Viewing file contents
+## File type
+
+To view the file type use the `file` command.
+
+```bash
+$file my_file
+my_file: ASCII Text
+```
+
+You can use the `-i` option to print MIME type strings rather than traditional human readable ones.
+
+```bash
+$file -i my_file
+myfile: text/plain; charset=us-ascii
+```
+
+---
+
+# Viewing file contents
+## 'more'
+
+For large files, `cat` can be annoying: you can't control what's happening after you start it.
+
+The `more` command displays text files as well, but stops after a page of data.
+
+- At the bottom, left side, it shows how far along in the text file you are (%)
+- Use `spacebar` to move forward page by page
+- Use `Enter` to move forward line by line
+- Use `q` to exit
+
+---
+
+# Viewing file contents
+## 'less'
+
+.center["Less is more"]
+
+The `less` utility does everything `more` does, but with extra usefull features.
+
+- You can move backwards, line by line with arrow keys, or page by page with `PageUp`.
+- It loads the file as needed (more efficient, specially for large files)
+- Supports searching
+- Supports jumping
+
+Just use `less` and run `less --help` or `man less` to explore its features!
+
+---
+
+# Viewing file parts
+## 'tail'
+
+Sometimes you just want to see information at the top or bottom of the file. GNU offers specialized utilities for that.
+
+The `tail` utility shows the last lines of the file (by default, 10).
+
+```bash
+# Show the last 10 lines
+$tail /var/log/pacman.log
+
+# Show the last 20 lines
+$tail -n 20 /var/log/pacman.log
+
+# Output appended data as the file grows
+$tail -f /var/log/pacman.log
+```
+
+The `-f`, or `--follow`, option is very cool. It lets you peek the file content while another process is writing to the file. Very handy when analysing and monitoring logs, for example.
+
+---
+
+# Viewing file parts
+## 'head'
+
+Similar to `tail`, but instead of showing the file bottom content, it shows the top content.
+
+```bash
+# Show the first 10 lines
+head example.txt
+
+# Show the first 5 lines
+head -n 5 example.txt
+```
