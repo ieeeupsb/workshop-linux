@@ -272,6 +272,8 @@ printf (3)           - formatted output conversion
 printf (3p)          - print formatted output
 ```
 
+**Tip**: You can accomplish the same result running `whatis <thing>`
+
 ---
 
 # The manual
@@ -285,6 +287,23 @@ Sometimes you forget the exact name for a command. No problem! You can tell `man
 $man -k printf
 ```
 
+---
+
+# The manual
+## Tips
+
+### Simplified man pages
+
+Sometimes, when you're in a rush and simply don't remember a specific argument of the command you want to run, you may prefer a simplified and summerized version of a man page.
+
+Chances are that what you need is documented in the simplified version of man: `tldr`.
+
+To know what you need in a simple maner, you just need to run, for example for the command `grep`:
+```bash
+tldr grep
+```
+
+**Note**: `tldr` is a third-party community maintained program, and therefore isn't included in your Linux distribution by default. To install it, use your distribution's package manager.
 
 ---
 
@@ -381,7 +400,7 @@ Assume **you are in the `current` directory.**
 
 In order to go to the upper level, `parent` directory:
 
-```
+```bash
 $pwd # /.../parent/current
 $cd ..
 $pwd # /.../parent
@@ -411,7 +430,7 @@ $cd child
 # Linux filesystem
 ## Listing files and directories
 
-Use ls to list files and directories located in your current directory
+Use `ls` to list files and directories located in your current directory
 
 The list is apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
 
@@ -467,6 +486,7 @@ A parte dos devices tem haver com device files
 **Tip**: You can mix options parameters like `ls -l -a -R`. Moreover, you don't need to type them separately, you can use `ls -laR`.
 
 // TODO: talk about wildcards?
+// TODO: Falar já de tab autocomplete?
 
 ---
 
@@ -485,9 +505,41 @@ You can also use `touch` to create files with specific modification times or cha
 ---
 
 # Linux filesystem
+## Reading files
+
+You can read the contents of a file using the `cat` command.
+
+```bash
+$cat <filename>
+$cat main.c  # will print the contents of main.c
+```
+
+This can be used when you simply want to know what the file holds.
+
+---
+
+# Linux filesystem
+## Deleting files
+
+You can delete files and directories with `rm`
+
+```bash
+$rm <filename>
+
+# delete file called main.c
+$rm main.c
+
+# delete directory called example/
+$rm -rf example/
+```
+To delete an entire folder and it's respective contents, we need to pass in the arguments `r` (recursive, delete each interior file) and `f` (force, as we don't want to be asked 'are you sure?' on each deletion)
+
+---
+
+# Linux filesystem
 ## Copying files
 
-To copy files and folders from one destination to another, you use `cp`.
+To copy files and folders from one location to another, you use `cp` command.
 
 ```bash
 $cp <source> <destination>
@@ -499,12 +551,29 @@ $cp filename.txt dst/
 
 If the `source` is a file and destination is a folder, the file is copied to that folder. The example above copies the file `filename.txt` to the folder `dst`.
 
+**Note 1:** Notice the **forward slash after `dst`**. It tells that `dst` is a directory. If you run `cp filename.txt dst` it copies `filename.txt` to a file named `dst` in the current directory.
+
+**Note 2:** The `cp` won't create directories, **it only supports pre-existing directories**. You can use `mkdir` before `cp`.
+
 ---
 
 # Linux filesystem
 ## Copying files
 
-What if the folder `dst/` has a file named `filename.txt`? By default, the file would be overwritten silently. If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
+The previous example keeps the original filename, but **you can copy the file and give it a new name**.
+
+```bash
+$cp filename.txt dst/new.txt
+```
+
+---
+
+# Linux filesystem
+## Copying files
+
+What if the folder `dst/` has a file named `filename.txt`? **By default, the file would be overwritten silently.**
+
+If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
 
 ```bash
 $cp -i filename.txt dst/
@@ -516,6 +585,218 @@ cp: overwrite 'dst/filename.txt'?
 ---
 
 # Linux filesystem
-## Copying files
+## Copying folders
 
-**Tip**: In the previous example the directory name was followed by a forward slash, `/`. You only need to do it if there's ambiguity, i.e., there's a filename and a folder with the same name.
+In order to copy folders and its content you must use the recursive option, `-r`.
+
+```bash
+$cp -r ~/Documents/ /media/backup
+```
+
+The `/media/backup` now has a `Documents` folder with a copy of all files and sub-folders.
+
+You can set a new destination folder name as well.
+
+```bash
+$cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
+```
+
+---
+
+# Linux filesystem
+## Using wildcards
+
+You can speed up what you're trying to do with the use of **wildcards**.
+A wildcard is a pattern you define accordingly to what you need.
+
+| Wildcard | Meaning | Example |
+|-|-|-|
+| `*` | Matches any characters | `cp *.pdf ~` |
+| `?` | Matches any single character | `cat fe?p.txt` |
+| `[]` | Matches any characters inside | `cp [b, c]at ~` |
+| `{}` | Use multiple wildcards | `cp {*.pdf, *.png} ~` |
+
+---
+
+# Linux filesystem
+## Moving and renaming files
+
+You can move files with `mv`.
+
+`mv` is also used to rename a file's name, because moving the file into another
+file with a different name is the same as simply renaming it.
+
+```bash
+$mv <filename> <destination>
+
+# move file called main.c into directory folder/
+$mv main.c folder/
+
+# rename xample.txt as example.txt
+$mv xample.txt example.txt
+```
+
+
+---
+
+# Linux's shell
+
+The most beloved feature of Linux **is the way it's internal shell works**.
+
+After knowing how to create, delete and copy files in Linux, we're going to look into more advanced
+features of our shell: **bash**
+
+---
+
+# What is bash?
+
+Bash is what powers the terminal, and what makes it so beautiful.
+
+With it, we can do pretty much everything that we want to do.
+
+---
+
+# What is bash?
+
+Want to delete all pdf files in your current directory?
+
+--
+
+`rm *.pdf`
+
+---
+
+# What is bash?
+
+Want to save your grade from a file full of student grades, into another file?
+
+--
+
+`cat grades.txt | grep -i "john doe" > my_grade.txt`
+
+---
+
+# What is bash?
+
+Want to join 3 different PDF files into a single PDF?
+
+--
+
+`pdfunite f1.pdf f2.pdf f3.pdf final.pdf`
+
+---
+
+# What is bash?
+
+These are just a few examples of what you might want to do in your day-by-day using Linux.
+
+Either it's something pretty easy or something quite complicated, we can *probably* guarantee that there's
+a bash command for it.
+
+---
+
+# Feature: redirection
+
+Redirection is a way of **sending the output of a program** to somewhere.
+The most common use of redirection is when we want to save the output of
+a program into a file.
+
+There are 2 main operators:
+- **>**, sends the output and overwrites the whole file
+- **>>**, appends the output to the file
+
+For example:
+```bash
+# this prints out the date and time
+date
+
+# this saves the output of that program into a file called now.txt
+date > now.txt     # now.txt was created
+
+# this appends another date into the file
+date >> now.txt
+```
+
+After running all of these commands, you should have a file with 2 lines,
+each with the current date and time.
+
+---
+# Feature: redirection
+
+Both **>** and **>>** would create the file, if it didn't already exist.
+
+The main difference is that **>** **would overwrite the whole file** with that new information, while **>>** **would
+just add the new information** in new lines.
+
+---
+
+# Feature: pipes
+
+A pipe is a way of using the **output of a program** as the **input for another program**.
+
+The operator for piping is **`|`**.
+
+TODO: Example
+
+---
+
+# Feature: multiplicity
+
+In bash, there isn't much of a limit of what you can do.
+We talked about using redirection and piping, but we didn't mention
+that you can combine these two.
+
+Bash let's you combine whatever you want to combine.
+
+Here's an example
+
+---
+
+# Example of multiplicity
+
+Imagine a friend of yours asked "what songs do you have downloaded?"
+
+--
+
+To reply to this question, you could go into your *windows explorer*, check out every .mp3 file you have in your music folder, and tell him.
+
+--
+
+Or...you could just do this!
+```bash
+ls ~/Music | grep -i ".mp3" > songs.txt
+```
+
+---
+
+# Feature: conditional expressions
+
+Sometimes, you might want to run a certain command if certain conditions are met.
+
+The most common way to do this is using the **`&&`** operator.
+This operator only runs the second program if and only if the first one succeeded.
+
+Example:
+```bash
+# move main.c into Documents/ and speak in case of success
+mv move.c Documents/ && espeak "file moved successfully"
+```
+
+---
+
+# Feature: conditional expressions
+
+Like the `&&` operator, we also have the following operators available, each with its own meaning:
+
+```bash
+A; B        # Run A and then B, regardless of success of A
+A && B      # Run B if and only if A succeeded
+A || B      # Run B if and only if A failed
+```
+
+--
+
+With these new operators, we can extend our example as:
+```bash
+mv move.c Documents/ && espeak "file moved sucessfully" || espeak "oh no! file was not moved"
+```

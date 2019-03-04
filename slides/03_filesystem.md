@@ -91,7 +91,7 @@ Assume **you are in the `current` directory.**
 
 In order to go to the upper level, `parent` directory:
 
-```
+```bash
 $pwd # /.../parent/current
 $cd ..
 $pwd # /.../parent
@@ -196,6 +196,38 @@ You can also use `touch` to create files with specific modification times or cha
 ---
 
 # Linux filesystem
+## Reading files
+
+You can read the contents of a file using the `cat` command.
+
+```bash
+$cat <filename>
+$cat main.c  # will print the contents of main.c
+```
+
+This can be used when you simply want to know what the file holds.
+
+---
+
+# Linux filesystem
+## Deleting files
+
+You can delete files and directories with `rm`
+
+```bash
+$rm <filename>
+
+# delete file called main.c
+$rm main.c
+
+# delete directory called example/
+$rm -rf example/
+```
+To delete an entire folder and it's respective contents, we need to pass in the arguments `r` (recursive, delete each interior file) and `f` (force, as we don't want to be asked 'are you sure?' on each deletion)
+
+---
+
+# Linux filesystem
 ## Copying files
 
 To copy files and folders from one location to another, you use `cp` command.
@@ -259,3 +291,39 @@ You can set a new destination folder name as well.
 ```bash
 $cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
 ```
+
+---
+
+# Linux filesystem
+## Using wildcards
+
+You can speed up what you're trying to do with the use of **wildcards**.
+A wildcard is a pattern you define accordingly to what you need.
+
+| Wildcard | Meaning | Example |
+|-|-|-|
+| `*` | Matches any characters | `cp *.pdf ~` |
+| `?` | Matches any single character | `cat fe?p.txt` |
+| `[]` | Matches any characters inside | `cp [b, c]at ~` |
+| `{}` | Use multiple wildcards | `cp {*.pdf, *.png} ~` |
+
+---
+
+# Linux filesystem
+## Moving and renaming files
+
+You can move files with `mv`.
+
+`mv` is also used to rename a file's name, because moving the file into another
+file with a different name is the same as simply renaming it.
+
+```bash
+$mv <filename> <destination>
+
+# move file called main.c into directory folder/
+$mv main.c folder/
+
+# rename xample.txt as example.txt
+$mv xample.txt example.txt
+```
+

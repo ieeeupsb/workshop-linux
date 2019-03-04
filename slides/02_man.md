@@ -81,6 +81,8 @@ printf (3)           - formatted output conversion
 printf (3p)          - print formatted output
 ```
 
+**Tip**: You can accomplish the same result running `whatis <thing>`
+
 ---
 
 # The manual
@@ -94,3 +96,20 @@ Sometimes you forget the exact name for a command. No problem! You can tell `man
 $man -k printf
 ```
 
+---
+
+# The manual
+## Tips
+
+### Simplified man pages
+
+Sometimes, when you're in a rush and simply don't remember a specific argument of the command you want to run, you may prefer a simplified and summerized version of a man page.
+
+Chances are that what you need is documented in the simplified version of man: `tldr`.
+
+To know what you need in a simple maner, you just need to run, for example for the command `grep`:
+```bash
+tldr grep
+```
+
+**Note**: `tldr` is a third-party community maintained program, and therefore isn't included in your Linux distribution by default. To install it, use your distribution's package manager.
