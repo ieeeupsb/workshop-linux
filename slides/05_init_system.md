@@ -26,13 +26,10 @@ Failure while starting the init system will result in a so called **kernel panic
 Although the init system is the godfather of all processes, there exist many
 different init systems to choose from.
 
-- **SystemD**: the init system used by the most used distributions.
-- **SysV init**:
+- **systemd** (the init system used by the most used distributions)
+- **SysV init** (the first init system, created for UNIX System V)
+- **Upstart**
+- **Epoch**
 
-???
-By default, these are the ones that come with the following distributions:
-
-| Init system | Distribution |
-|-|-|
-| SystemD | Debian, Ubuntu, Fedora, Arch Linux, Kali Linux |
-| SysV | 
+We are going to focus on *systemd*, as it is the default used by: Ubuntu, Debian, Fedora, Arch Linux,
+Kali Linux, Red Hat, CentOS, and many more.
