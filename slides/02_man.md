@@ -3,13 +3,13 @@
 Most Linux distributions include a manual for looking up information on shell commands, GNU utilities, Linux API, C libraries and functions, etc.
 
 ```bash
-$man
+$ man
 ```
 
 If you want to know what `cat` command is and what options it has, you can view the manual.
 
 ```bash
-$man cat
+$ man cat
 ```
 
 ---
@@ -50,7 +50,7 @@ In addition well structured pages, the manual is organized in **page section are
 You don't need to remember this table! See the **description** of manual for the manual...
 
 ```bash
-$man man
+$ man man
 ```
 
 ---
@@ -63,7 +63,7 @@ $man man
 The `man` utility provides the lowest numbered section for the searched command. This is, if the same command matches entries in different sections, only the first is shown. You can tell the desired section.
 
 ```bash
-$man 3 printf # show the printf page from section 3 (C library calls)
+$ man 3 printf # show the printf page from section 3 (C library calls)
 ```
 
 ### Lookup for manual pages
@@ -71,7 +71,7 @@ $man 3 printf # show the printf page from section 3 (C library calls)
 The `-f` option allows `man` to display all manual pages that match the name in the input
 
 ```bash
-$man -f printf
+$ man -f printf
 ```
 
 ```bash
@@ -93,7 +93,7 @@ printf (3p)          - print formatted output
 Sometimes you forget the exact name for a command. No problem! You can tell `man` to search and list manual pages that match your input (regular expression)
 
 ```bash
-$man -k printf
+$ man -k printf
 ```
 
 ---

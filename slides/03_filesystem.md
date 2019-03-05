@@ -66,7 +66,7 @@ If you plug-in removable media or you have multiple hard drives
 To change the current directory use `cd` command:
 
 ```bash
-$cd <destination>
+$ cd <destination>
 ```
 
 Two kinds of directory references:
@@ -78,7 +78,7 @@ Two special characters for relative directories:
 - Double dot `..` : symbolic name for the parent directory (previous)
 	
 ```bash
-$cd /home/ieee/Documents/
+$ cd /home/ieee/Documents/
 ```
 
 ---
@@ -98,9 +98,9 @@ Assume **you are in the `current` directory.**
 In order to go to the upper level, `parent` directory:
 
 ```bash
-$pwd # /.../parent/current
-$cd ..
-$pwd # /.../parent
+$ pwd # /.../parent/current
+$ cd ..
+$ pwd # /.../parent
 ```
 
 **Tip** : Use `pwd` to know your current absolute path
@@ -113,13 +113,13 @@ $pwd # /.../parent
 Or to go from `current` to `dummy`, which are at the same level:
 
 ```
-$cd ../dummy/ # first we go to parent (..), then we change to dummy/
+$ cd ../dummy/ # first we go to parent (..), then we change to dummy/
 ```
 
 If we are at `current` and we wish to navigate to subfolders like `child`, we can use the relative path:
 
 ```
-$cd child
+$ cd child
 ```
 
 ---
@@ -129,7 +129,7 @@ $cd child
 
 Use `ls` to list files and directories located in your current directory
 
-The list is apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
+The list is in apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
 
 In addition to colors you can use the `-F` option. Entries with `/` are folders, executables have a `*` at the end, and so on.
 
@@ -138,16 +138,16 @@ In addition to colors you can use the `-F` option. Entries with `/` are folders,
 # Linux filesystem
 ## Listing files and directories
 
-Some files in Linux are **hidden files**. Their name starts with a dot (`.bashrc`). By default they are not shown by `ls`. If you want to see them, use the `-a` or `--all` option.
+Some files in Linux are **hidden files**. Their name starts with a dot (eg. `.bashrc`). By default they are not shown by `ls`. If you want to see them, use the `-a` or `--all` option.
 
 ```
-$ls -a
+$ ls -a
 ```
 
 Use `-R` for recursive listing. By default, `ls` only lists entries which are direct child of the current directory. If you want to list entries from subfolders, you must use this option.
 
 ```
-$ls -R
+$ ls -R
 ```
 
 ---
@@ -155,10 +155,10 @@ $ls -R
 # Linux filesystem
 ## Listing files and directories
 
-Default list doesn't tells us much, it's just a quick overview of the current directory content. If you wish to view more datails use the long listing option, `-l`.
+Default list doesn't tells us much, it's just a quick overview of the current directory content. If you wish to view more details, use the long listing option, `-l`.
 
 ```
-$ls -l
+$ ls -l
 ```
 
 It shows file permissions, size, modification time, etc. The very first character tells you the type of file:
@@ -193,8 +193,8 @@ A parte dos devices tem haver com device files
 You can create empty files with `touch`
 
 ```bash
-$touch <filename>
-$touch main.c # empty file called main.c
+$ touch <filename>
+$ touch main.c # empty file called main.c
 ```
 
 You can also use `touch` to create files with specific modification times or change existing files modification times.
@@ -207,8 +207,8 @@ You can also use `touch` to create files with specific modification times or cha
 You can read the contents of a file using the `cat` command.
 
 ```bash
-$cat <filename>
-$cat main.c  # will print the contents of main.c
+$ cat <filename>
+$ cat main.c  # will print the contents of main.c
 ```
 
 This can be used when you simply want to know what the file holds.
@@ -221,11 +221,11 @@ This can be used when you simply want to know what the file holds.
 To copy files and folders from one location to another, you use `cp` command.
 
 ```bash
-$cp <source> <destination>
+$ cp <source> <destination>
 ```
 
 ```bash
-$cp filename.txt dst/
+$ cp filename.txt dst/
 ```
 
 If the `source` is a file and destination is a folder, the file is copied to that folder. The example above copies the file `filename.txt` to the folder `dst`.
@@ -242,7 +242,7 @@ If the `source` is a file and destination is a folder, the file is copied to tha
 The previous example keeps the original filename, but **you can copy the file and give it a new name**.
 
 ```bash
-$cp filename.txt dst/new.txt
+$ cp filename.txt dst/new.txt
 ```
 
 ---
@@ -255,7 +255,7 @@ What if the folder `dst/` has a file named `filename.txt`? **By default, the fil
 If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
 
 ```bash
-$cp -i filename.txt dst/
+$ cp -i filename.txt dst/
 cp: overwrite 'dst/filename.txt'?
 ```
 
@@ -269,7 +269,7 @@ cp: overwrite 'dst/filename.txt'?
 In order to copy folders and its content you must use the recursive option, `-r`.
 
 ```bash
-$cp -r ~/Documents/ /media/backup
+$ cp -r ~/Documents/ /media/backup
 ```
 
 The `/media/backup` now has a `Documents` folder with a copy of all files and sub-folders.
@@ -277,7 +277,7 @@ The `/media/backup` now has a `Documents` folder with a copy of all files and su
 You can set a new destination folder name as well.
 
 ```bash
-$cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
+$ cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
 ```
 
 ---
@@ -291,13 +291,13 @@ You can move files with `mv`.
 file with a different name is the same as simply renaming it.
 
 ```bash
-$mv <filename> <destination>
+$ mv <filename> <destination>
 
 # move file called main.c into directory folder/
-$mv main.c folder/
+$ mv main.c folder/
 
 # rename xample.txt as example.txt
-$mv xample.txt example.txt
+$ mv xample.txt example.txt
 ```
 
 **Tip:** Like the `cp` command, you can use the `-i` option to be asked before overwriting existing files.
@@ -310,10 +310,10 @@ $mv xample.txt example.txt
 You can delete files with `rm`.
 
 ```bash
-$rm <filename>
+$ rm <filename>
 
 # delete file called main.c
-$rm main.c
+$ rm main.c
 ```
 
 **IMPORTANT**: Think twice before removing a file. The shell doesn't have a trashcan. Once you remove it, it's gone "forever".
@@ -343,8 +343,8 @@ If you are deleting large amounts of files and sub directories, the `-i` option 
 To create a new directory/folder you use the `mkdir`.
 
 ```bash
-$mkdir demo
-$ls -l
+$ mkdir demo
+$ ls -l
 total 4
 drwxr-xr-x 2 ieee ieee 4096 mar  4 17:01 demo
 ```
@@ -352,7 +352,7 @@ drwxr-xr-x 2 ieee ieee 4096 mar  4 17:01 demo
 If you attempt to create a bulk of new directories, you get an error:
 
 ```bash
-$mkdir dir/subdir/subsubdir
+$ mkdir dir/subdir/subsubdir
 mkdir: cannot create directory ‘dir/subdir/subsubdir’: No such file or directory
 ```
 
@@ -366,14 +366,14 @@ To make it work, you use the `-p` option, which means *parents*: make parent dir
 To view the file type use the `file` command.
 
 ```bash
-$file my_file
+$ file my_file
 my_file: ASCII Text
 ```
 
 You can use the `-i` option to print MIME type strings rather than traditional human readable ones.
 
 ```bash
-$file -i my_file
+$ file -i my_file
 myfile: text/plain; charset=us-ascii
 ```
 
@@ -418,13 +418,13 @@ The `tail` utility shows the last lines of the file (by default, 10).
 
 ```bash
 # Show the last 10 lines
-$tail /var/log/pacman.log
+$ tail /var/log/pacman.log
 
 # Show the last 20 lines
-$tail -n 20 /var/log/pacman.log
+$ tail -n 20 /var/log/pacman.log
 
 # Output appended data as the file grows
-$tail -f /var/log/pacman.log
+$ tail -f /var/log/pacman.log
 ```
 
 The `-f`, or `--follow`, option is very cool. It lets you peek the file content while another process is writing to the file. Very handy when analysing and monitoring logs, for example.
