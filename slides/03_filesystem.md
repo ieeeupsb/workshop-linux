@@ -443,3 +443,88 @@ head example.txt
 # Show the first 5 lines
 head -n 5 example.txt
 ```
+
+---
+
+class: middle, center
+
+# The Linux File Permissions
+
+---
+
+# User accounts
+
+**Each individual** who acesses a Linux system **should have an unique user account assigned.**
+
+Each user account has **different permissions** to objects on the system.
+
+User permissions are tracked using an *user ID (UID)*
+- numerical value
+- unique for each user
+- assigned to an account when it's created
+
+---
+
+# How Linux handles user accounts
+
+All Linux systems have a **root** user account
+- Administrator for the system. Has maximum control
+- Always assigned with UID 0
+
+Before security was a big concern, system services would run logged in as `root`
+- If an unauthorized person broke into one of those services => access to the system as the `root`
+- This must be prevented
+
+To solve the issue, every service running in the background has its own user account, with well defined permissions. These are known as **system accounts**
+
+---
+
+# How Linux handles user accounts
+
+Linux uses a special file that maps login names to UID values: `/etc/passwd`.
+
+If you look at the file, you will see tons of accounts:
+- The **root** with UID 0
+- **System accounts**, typically with UIDs below 500
+- **User accounts**, typically with UIDs above or equal to 500. This includes your own account!
+
+The file has several information:
+- The login **username**
+- A placeholder for the password (no longer used, typically has a **x** value)
+- The UID and GUI
+- The **HOME** directory for each user
+- Default **shell**
+- Among other information
+
+---
+
+# How Linux handles user accounts
+
+Nowadays, Linux stores user passwords in the *shadow file*, located at `/etc/shadow`
+- Several programs need to access `/etc/passwd` to get user information
+- The password couldn't be stored there
+
+The *shadow file* can only be accessed by special programs (e.g login program) and **root**
+
+Contains one record for each user account
+
+For each record, it stores:
+- Login name
+- Encrypted password
+- ...
+
+---
+
+# Linux groups
+
+Some systems are meant to be shared by multiple users, which might share resources and permissions.
+
+Linux introduced the **group** concept. A **group permissions** allow multiple users to share a common set of permissions for an object on the system (files, directories, devices).
+
+Groups have a GID (like users have a UID) and a name.
+
+Groups informations are stored in `/etc/group` file:
+- Name
+- GID
+- List of user accounts that belong to the group
+
