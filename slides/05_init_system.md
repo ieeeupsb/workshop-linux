@@ -121,6 +121,18 @@ A daemon is commonly also refered to as a service.
 
 # The init system
 
+## Special type of processes: daemons
+
+When we're talking about daemons, we commonly refer to them as *enabled* and *disabled*.
+
+An **enabled service** is a daemon that starts is started on boot time.
+
+A **disabled service** is exactly the opposite: doesn't start by itself.
+
+---
+
+# The init system
+
 ## Managing daemons with `systemctl`
 
 `systemctl` is a `systemd` utility that lets you manage services.
@@ -146,3 +158,19 @@ sudo systemctl stop nginx.service
 
 ---
 
+# The init system
+
+## Listing daemons with `systemctl`
+
+You can list the existing daemons on your system with:
+
+```bash
+# all
+systemctl list-unit-files
+
+# enabled only
+systemctl list-unit-files | grep enabled
+
+# disabled only
+systemctl list-unit-files | grep disabled
+```
