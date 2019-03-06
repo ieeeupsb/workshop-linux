@@ -194,13 +194,13 @@ Examples:
 Most Linux distributions include a manual for looking up information on shell commands, GNU utilities, Linux API, C libraries and functions, etc.
 
 ```bash
-$man
+$ man
 ```
 
 If you want to know what `cat` command is and what options it has, you can view the manual.
 
 ```bash
-$man cat
+$ man cat
 ```
 
 ---
@@ -241,7 +241,7 @@ In addition well structured pages, the manual is organized in **page section are
 You don't need to remember this table! See the **description** of manual for the manual...
 
 ```bash
-$man man
+$ man man
 ```
 
 ---
@@ -254,7 +254,7 @@ $man man
 The `man` utility provides the lowest numbered section for the searched command. This is, if the same command matches entries in different sections, only the first is shown. You can tell the desired section.
 
 ```bash
-$man 3 printf # show the printf page from section 3 (C library calls)
+$ man 3 printf # show the printf page from section 3 (C library calls)
 ```
 
 ### Lookup for manual pages
@@ -262,7 +262,7 @@ $man 3 printf # show the printf page from section 3 (C library calls)
 The `-f` option allows `man` to display all manual pages that match the name in the input
 
 ```bash
-$man -f printf
+$ man -f printf
 ```
 
 ```bash
@@ -284,7 +284,7 @@ printf (3p)          - print formatted output
 Sometimes you forget the exact name for a command. No problem! You can tell `man` to search and list manual pages that match your input (regular expression)
 
 ```bash
-$man -k printf
+$ man -k printf
 ```
 
 ---
@@ -307,9 +307,15 @@ tldr grep
 
 ---
 
+class: center, middle, inverse 
+
+# Linux Filesystem
+
+---
+
 # Linux filesystem
 
-**Windows assigns a letter to a each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
+**Windows assigns a letter to each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
 
 **Linux does not use driver letters** in pathnames.
 
@@ -369,7 +375,7 @@ If you plug-in removable media or you have multiple hard drives
 To change the current directory use `cd` command:
 
 ```bash
-$cd <destination>
+$ cd <destination>
 ```
 
 Two kinds of directory references:
@@ -381,7 +387,7 @@ Two special characters for relative directories:
 - Double dot `..` : symbolic name for the parent directory (previous)
 	
 ```bash
-$cd /home/ieee/Documents/
+$ cd /home/ieee/Documents/
 ```
 
 ---
@@ -401,9 +407,9 @@ Assume **you are in the `current` directory.**
 In order to go to the upper level, `parent` directory:
 
 ```bash
-$pwd # /.../parent/current
-$cd ..
-$pwd # /.../parent
+$ pwd # /.../parent/current
+$ cd ..
+$ pwd # /.../parent
 ```
 
 **Tip** : Use `pwd` to know your current absolute path
@@ -416,13 +422,13 @@ $pwd # /.../parent
 Or to go from `current` to `dummy`, which are at the same level:
 
 ```
-$cd ../dummy/ # first we go to parent (..), then we change to dummy/
+$ cd ../dummy/ # first we go to parent (..), then we change to dummy/
 ```
 
 If we are at `current` and we wish to navigate to subfolders like `child`, we can use the relative path:
 
 ```
-$cd child
+$ cd child
 ```
 
 ---
@@ -432,7 +438,7 @@ $cd child
 
 Use `ls` to list files and directories located in your current directory
 
-The list is apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
+The list is in apalhabetical order and displayed in rows. If your terminal supports colors, different types of entries (files, folders, executables, links, ...) are shown in distinct colors for easier reading.
 
 In addition to colors you can use the `-F` option. Entries with `/` are folders, executables have a `*` at the end, and so on.
 
@@ -441,16 +447,16 @@ In addition to colors you can use the `-F` option. Entries with `/` are folders,
 # Linux filesystem
 ## Listing files and directories
 
-Some files in Linux are **hidden files**. Their name starts with a dot (`.bashrc`). By default they are not shown by `ls`. If you want to see them, use the `-a` or `--all` option.
+Some files in Linux are **hidden files**. Their name starts with a dot (eg. `.bashrc`). By default they are not shown by `ls`. If you want to see them, use the `-a` or `--all` option.
 
 ```
-$ls -a
+$ ls -a
 ```
 
 Use `-R` for recursive listing. By default, `ls` only lists entries which are direct child of the current directory. If you want to list entries from subfolders, you must use this option.
 
 ```
-$ls -R
+$ ls -R
 ```
 
 ---
@@ -458,10 +464,10 @@ $ls -R
 # Linux filesystem
 ## Listing files and directories
 
-Default list doesn't tells us much, it's just a quick overview of the current directory content. If you wish to view more datails use the long listing option, `-l`.
+Default list doesn't tells us much, it's just a quick overview of the current directory content. If you wish to view more details, use the long listing option, `-l`.
 
 ```
-$ls -l
+$ ls -l
 ```
 
 It shows file permissions, size, modification time, etc. The very first character tells you the type of file:
@@ -496,8 +502,8 @@ A parte dos devices tem haver com device files
 You can create empty files with `touch`
 
 ```bash
-$touch <filename>
-$touch main.c # empty file called main.c
+$ touch <filename>
+$ touch main.c # empty file called main.c
 ```
 
 You can also use `touch` to create files with specific modification times or change existing files modification times.
@@ -510,29 +516,11 @@ You can also use `touch` to create files with specific modification times or cha
 You can read the contents of a file using the `cat` command.
 
 ```bash
-$cat <filename>
-$cat main.c  # will print the contents of main.c
+$ cat <filename>
+$ cat main.c  # will print the contents of main.c
 ```
 
 This can be used when you simply want to know what the file holds.
-
----
-
-# Linux filesystem
-## Deleting files
-
-You can delete files and directories with `rm`
-
-```bash
-$rm <filename>
-
-# delete file called main.c
-$rm main.c
-
-# delete directory called example/
-$rm -rf example/
-```
-To delete an entire folder and it's respective contents, we need to pass in the arguments `r` (recursive, delete each interior file) and `f` (force, as we don't want to be asked 'are you sure?' on each deletion)
 
 ---
 
@@ -542,11 +530,11 @@ To delete an entire folder and it's respective contents, we need to pass in the 
 To copy files and folders from one location to another, you use `cp` command.
 
 ```bash
-$cp <source> <destination>
+$ cp <source> <destination>
 ```
 
 ```bash
-$cp filename.txt dst/
+$ cp filename.txt dst/
 ```
 
 If the `source` is a file and destination is a folder, the file is copied to that folder. The example above copies the file `filename.txt` to the folder `dst`.
@@ -563,7 +551,7 @@ If the `source` is a file and destination is a folder, the file is copied to tha
 The previous example keeps the original filename, but **you can copy the file and give it a new name**.
 
 ```bash
-$cp filename.txt dst/new.txt
+$ cp filename.txt dst/new.txt
 ```
 
 ---
@@ -576,7 +564,7 @@ What if the folder `dst/` has a file named `filename.txt`? **By default, the fil
 If you use the `-i` option, the utility will prompt and ask you if you want to overwrite. If you want, just type `y`.
 
 ```bash
-$cp -i filename.txt dst/
+$ cp -i filename.txt dst/
 cp: overwrite 'dst/filename.txt'?
 ```
 
@@ -590,7 +578,7 @@ cp: overwrite 'dst/filename.txt'?
 In order to copy folders and its content you must use the recursive option, `-r`.
 
 ```bash
-$cp -r ~/Documents/ /media/backup
+$ cp -r ~/Documents/ /media/backup
 ```
 
 The `/media/backup` now has a `Documents` folder with a copy of all files and sub-folders.
@@ -598,7 +586,7 @@ The `/media/backup` now has a `Documents` folder with a copy of all files and su
 You can set a new destination folder name as well.
 
 ```bash
-$cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
+$ cp -r ~/Documents/ /media/backup/01-mar-2019-documents/
 ```
 
 ---
@@ -612,14 +600,351 @@ You can move files with `mv`.
 file with a different name is the same as simply renaming it.
 
 ```bash
-$mv <filename> <destination>
+$ mv <filename> <destination>
 
 # move file called main.c into directory folder/
-$mv main.c folder/
+$ mv main.c folder/
 
 # rename xample.txt as example.txt
-$mv xample.txt example.txt
+$ mv xample.txt example.txt
 ```
+
+**Tip:** Like the `cp` command, you can use the `-i` option to be asked before overwriting existing files.
+
+---
+
+# Linux filesystem
+## Deleting files
+
+You can delete files with `rm`.
+
+```bash
+$ rm <filename>
+
+# delete file called main.c
+$ rm main.c
+```
+
+**IMPORTANT**: Think twice before removing a file. The shell doesn't have a trashcan. Once you remove it, it's gone "forever".
+
+A good practice is to use the `-i` parameter. It will prompt before removing each file.
+
+However, if you are removing a group of files, the `-i` can be tedious.
+
+---
+
+# Linux filesystem
+## Removing directories
+
+The `rm` can be used to remove directories as well. You must use the `-r` or `-R` option, which means recursive.
+
+The commands descends to the directory and removes the files. If it finds sub-directories, it descends to them and removes the files. If no further content is found, it deletes the directory itself.
+
+You can use the `-i` option as well. It will prompt before desceding to any directory. If you confirm, it descends and deletes all files. If no more content is found in that folder, it finally asks if it should delete the directory itself.
+
+If you are deleting large amounts of files and sub directories, the `-i` option can be extremely tedious! Perhaps, you should use a tool such `tree` to get a structured overview of the contents or `ls -r` (`tree` doesn't belong to GNU utilities and might not be installed out of the box).
+
+---
+
+# Linux filesystem
+## Creating directories
+
+To create a new directory/folder you use the `mkdir`.
+
+```bash
+$ mkdir demo
+$ ls -l
+total 4
+drwxr-xr-x 2 ieee ieee 4096 mar  4 17:01 demo
+```
+
+If you attempt to create a bulk of new directories, you get an error:
+
+```bash
+$ mkdir dir/subdir/subsubdir
+mkdir: cannot create directory ‘dir/subdir/subsubdir’: No such file or directory
+```
+
+To make it work, you use the `-p` option, which means *parents*: make parent directories as needed.
+
+---
+
+# Viewing file contents
+## File type
+
+To view the file type use the `file` command.
+
+```bash
+$ file my_file
+my_file: ASCII Text
+```
+
+You can use the `-i` option to print MIME type strings rather than traditional human readable ones.
+
+```bash
+$ file -i my_file
+myfile: text/plain; charset=us-ascii
+```
+
+---
+
+# Viewing file contents
+## 'more'
+
+For large files, `cat` can be annoying: you can't control what's happening after you start it.
+
+The `more` command displays text files as well, but stops after a page of data.
+
+- At the bottom, left side, it shows how far along in the text file you are (%)
+- Use `spacebar` to move forward page by page
+- Use `Enter` to move forward line by line
+- Use `q` to exit
+
+---
+
+# Viewing file contents
+## 'less'
+
+.center["Less is more"]
+
+The `less` utility does everything `more` does, but with extra usefull features.
+
+- You can move backwards, line by line with arrow keys, or page by page with `PageUp`.
+- It loads the file as needed (more efficient, specially for large files)
+- Supports searching
+- Supports jumping
+
+Just use `less` and run `less --help` or `man less` to explore its features!
+
+---
+
+# Viewing file parts
+## 'tail'
+
+Sometimes you just want to see information at the top or bottom of the file. GNU offers specialized utilities for that.
+
+The `tail` utility shows the last lines of the file (by default, 10).
+
+```bash
+# Show the last 10 lines
+$ tail /var/log/pacman.log
+
+# Show the last 20 lines
+$ tail -n 20 /var/log/pacman.log
+
+# Output appended data as the file grows
+$ tail -f /var/log/pacman.log
+```
+
+The `-f`, or `--follow`, option is very cool. It lets you peek the file content while another process is writing to the file. Very handy when analysing and monitoring logs, for example.
+
+---
+
+# Viewing file parts
+## 'head'
+
+Similar to `tail`, but instead of showing the file bottom content, it shows the top content.
+
+```bash
+# Show the first 10 lines
+head example.txt
+
+# Show the first 5 lines
+head -n 5 example.txt
+```
+
+---
+
+class: middle, center
+
+# The Linux File Permissions
+
+---
+
+# User accounts
+
+**Each individual** who acesses a Linux system **should have an unique user account assigned.**
+
+Each user account has **different permissions** to objects on the system.
+
+User permissions are tracked using an *user ID (UID)*
+- numerical value
+- unique for each user
+- assigned to an account when it's created
+
+---
+
+# How Linux handles user accounts
+
+All Linux systems have a **root** user account
+- Administrator for the system. Has maximum control
+- Always assigned with UID 0
+
+Before security was a big concern, system services would run logged in as `root`.
+- If an unauthorized person broke into one of those services => access to the system as the `root`;
+- This must be prevented.
+
+To solve the issue, every service running in the background has its own user account, with well defined permissions. These are known as **system accounts**.
+
+---
+
+# How Linux handles user accounts
+
+Linux uses a special file that maps login names to UID values: `/etc/passwd`.
+
+If you look at the file, you will see tons of accounts:
+- The **root** with UID 0
+- **System accounts**, typically with UIDs below 500
+- **User accounts**, typically with UIDs above or equal to 500. This includes your own account!
+
+The file has several information:
+- The login **username**
+- A placeholder for the password (no longer used, typically has a **x** value)
+- The UID and GUI
+- The **HOME** directory for each user
+- Default **shell**
+- Among other information
+
+---
+
+# How Linux handles user accounts
+
+Nowadays, Linux stores user passwords in the *shadow file*, located at `/etc/shadow`
+- Several programs need to access `/etc/passwd` to get user information
+- The password couldn't be stored there
+
+The *shadow file* can only be accessed by special programs (e.g login program) and **root**.
+
+Contains one record for each user account.
+
+For each record, it stores:
+- Login name
+- Encrypted password
+- ...
+
+---
+
+# Linux groups
+
+Some systems are meant to be shared by multiple users, which might share resources and permissions.
+
+Linux introduced the **group** concept. A **group permissions** allow multiple users to share a common set of permissions for an object on the system (files, directories, devices).
+
+Groups have a GID (like users have a UID) and a name.
+
+Groups informations are stored in `/etc/group` file:
+- Name
+- GID
+- List of user accounts that belong to the group
+
+---
+
+# Decoding the file permissions
+
+Do you recall the misterious output of `ls -l`?
+
+Now that you how Linux handles users and groups, let's decode that information.
+
+```bash
+$ ls -l
+-rw-r--r-- 1 ieee ieee 15205 mar  5 22:58 03_filesystem.md
+```
+
+First character defines the type of object: file (`-`), directory (`d`), ...
+
+Next, we have three sets of three characters. Each set of three characters defines an access permisision triplet:
+
+**r** for reading | **w** for writing | **x** for executing 
+
+When one of these permissions is denied, a dash, `-`, appears.
+
+Each set is related with levels of security, in the following order (left to right):
+- Owner of the object
+- The group that owns the object
+- Everyone else on the system
+
+---
+
+# Decoding the file permissions
+
+```bash
+$ ls -l
+-rw-r--r-- 1 ieee ieee 15205 mar  5 22:58 03_filesystem.md
+```
+
+The permissions string is: `rw-r--r--`
+
+- Owner has permissions `rw-`, i.e., reading and writing permission (owner has login name `ieee`)
+- The group that owns the object has permissions `r--`, thus only reading access (owner group name is `ieee`)
+- Everyone else, has only reading access
+
+---
+
+# Default file permissions
+
+The Linux kernel has default permissions for directories and files
+- Directories: `rwx` for owner, group and everyone else
+- Files: `rw-` for owner, group and everyone else
+
+However, if you create a new file, it probably doesn't have such permissions. That is because of the `umask`.
+
+Before looking at `umask` value, you need to understand the octal mode for permissions.
+
+---
+
+# Default file permissions
+## Octal mode
+
+In the octal representation, we use a 3-bit binary value for the three `rwx` permission values.
+
+Each bit is mapped to the corresponding **read**, **write** and **execute** permissions.
+
+Bits set to 1 enable the permission. Bits set to 0 disable the permission.
+
+A value such 101 enables the read and execute permissions, but disables the write permission.
+
+This binary value is then converted to octal representation, which is base 8 representation, thus each digit from a number ranges from 0 to 7.
+
+The value 7 is octal, has the binary **111**, which enables **read**, **write** and **execute** permission.
+
+But we have three sets of permissions. To represent the permissions in octal, we need three digits: one for the **owner**, one for **group** and one for **others**.
+
+---
+
+# Default file permissions
+## The 'umask'
+
+Moreover, octal numbers start with a **0**. 
+
+For instance, the number **0666**, which is the default permission set by the kernel for files, means that owner, group and everyone else has read and write permissions only.
+
+Back to the umask, if you run the command `umask` you may get a value **0022**
+- You may think this means your files, when created, have no permissions for the owner (wait, what?), and write-only permissions for the group and everyone else.
+- However, if I create a new file it will have permissions **0644**
+- In fact, that value is just a mask that affects the default kernel values for permissions
+
+---
+
+# Default file permissions
+## The 'umask'
+
+To calculate the permissions that will be set to new files and folders, we need some arithmetic
+
+.center[`<kernel default> & ~<umask>`]
+
+Example:
+- **umask** is 0022 (0b 000 010 010)
+- Negating the **umask**, we get 0755 (0b 111 101 101)
+- default kernel permission for files is 0666 (0b 110 110 110)
+- Doing the logical AND operation, we get: 0644 (0b 110 100 100)
+
+Or, just subtract the numbers :)
+
+.center[`<kernel default> - <umask>`]
+
+Example:
+- `0666 - 0022 = 0644`
+
 
 
 ---
@@ -797,4 +1122,275 @@ A || B      # Run B if and only if A failed
 With these new operators, we can extend our example as:
 ```bash
 mv move.c Documents/ && espeak "file moved sucessfully" || espeak "oh no! file was not moved"
+```
+
+---
+
+class: center, middle, inverse
+
+# The init system
+
+---
+
+# The init system
+
+## Introduction
+
+The init system is the **first process to start**, when you turn on the computer,
+and the **last process to terminate**, when you shut it down.
+
+A computer that fails to start the init system, fails to boot, as **this
+is the single centralized program that starts, manages, and stops *all other processes***.
+
+Failure while starting the init system will result in a so called **kernel panic**
+(the Linux equivalent of a Windows' *blue screen of death*).
+
+---
+
+# The init system
+
+## Variety of init systems
+
+Although the init system is the godfather of all processes, there exist many
+different init systems to choose from.
+
+- **systemd** (the init system used by the most used distributions)
+- **SysV init** (the first init system, created for UNIX System V)
+- **Upstart**
+- **Epoch**
+
+We are going to focus on *systemd*, as it is the default used by: Ubuntu, Debian, Fedora, Arch Linux,
+Kali Linux, Red Hat, CentOS, and many more.
+
+---
+
+# The init system
+
+## What is a process?
+
+A process is a term given to **programs in execution**. A program that is
+currently running is called a _process_.
+
+???
+TODO add more info
+
+---
+
+# The init system
+
+## How processes work in Linux
+
+In Linux, each process is assigned a **PID** (process identification number). This number is
+unique to a process throughout all other processes, and it is used to identify a certain process.
+
+The init system, as it is the first program to be started, **is always assigned the PID 1**, as
+the PID **assignment is sequencial**.
+
+Using the command `pidof`, we can check which PID(s) a certain program has.
+
+To check the PID of your init system, you could run:
+```bash
+# SysV init + systemd 
+pidof init
+
+# systemd
+pidof systemd
+```
+One of the above commands should return 1, as the PID.
+
+---
+
+# The init system
+
+## Using a task manager
+
+To check which programs you currently have running, you can do:
+
+```bash
+ps aux
+```
+
+This will print everything that is running on your computer.
+But what if we want to explore and kill processes, interactively?
+
+For that, we can use `htop`, an interactive task manager.
+
+**Note**: you may need to install it on your system.
+
+---
+
+# The init system
+
+## Killing processes
+
+To kill a process, you could use `htop`, by selecting the process and pushing the keys `F9` `9` `ENTER`, sequentially.
+
+But this is a Linux workshop, and we want to be really fast at killing things.
+
+For a more effective way of terminating things in execution, use `killall`:
+
+```bash
+killall firefox
+```
+
+---
+
+# The init system
+
+## Special type of processes: daemons
+
+A daemon is a program that runs as a background process, and is manageable by your init system (enable, disable, start, checking status and stop).
+
+If you have processes that start when you turn on your computer, those are normally seen as daemons, as it was your init system that started it.
+
+A daemon is commonly also refered to as a service.
+
+---
+
+# The init system
+
+## Special type of processes: daemons
+
+When we're talking about daemons, we commonly refer to them as *enabled* and *disabled*.
+
+An **enabled service** is a daemon that starts is started on boot time.
+
+A **disabled service** is exactly the opposite: doesn't start by itself.
+
+---
+
+# The init system
+
+## Managing daemons with `systemctl`
+
+`systemctl` is a `systemd` utility that lets you manage services.
+
+The 5 most useful commands for `systemctl` are the following:
+
+```bash
+# start a service
+sudo systemctl start nginx.service
+
+# make the service start on boot
+sudo systemctl enable nginx.service
+
+# check the status of the service
+sudo systemctl status nginx.service
+
+# make the service don't start on boot
+sudo systemctl disable nginx.service
+
+# stop the service
+sudo systemctl stop nginx.service
+```
+
+---
+
+# The init system
+
+## Listing daemons with `systemctl`
+
+You can list the existing daemons on your system with:
+
+```bash
+# all
+systemctl list-unit-files
+
+# enabled only
+systemctl list-unit-files | grep enabled
+
+# disabled only
+systemctl list-unit-files | grep disabled
+```
+
+---
+
+class: middle, center, invert
+
+# The Package Manager
+
+---
+
+# The Package Manager
+
+## What it is
+
+A package manager is a program that lets you install other programs, in a easy and effective way.
+
+Each distribution normally has its own package manager, but that doesn't mean there aren't common
+package managers among distributions.
+
+The most common one, `apt` (Advanced Packaging Tool), also known as `apt-get`, is the one we're
+going to focus on, as it's debian's package manager (the distribution Ubuntu derives from).
+
+---
+
+# The Package Manager
+
+## How `apt` works
+
+When you install Ubuntu, for example, it comes with the Canonical's* apt sources.
+
+The list of repositories, available at `/etc/apt/sources.list`, is what tells Ubuntu where
+to fetch for information about the packages that exist, and where to download them from.
+
+To tell Ubuntu about which packages exist, we should run:
+
+```bash
+sudo apt update
+```
+
+\*Canonical is the company behind Ubuntu
+
+---
+
+# The Package Manager
+
+## Installing packages
+
+To install a package with `apt`, we only need to do:
+
+```bash
+# try to run the command
+sl
+bash: sl: command not found
+
+# install the sl package
+sudo apt install sl
+
+# try to run again (seriously, try it)
+sl
+```
+
+---
+
+# The Package Manager
+
+## Upgrading existing packages
+
+When we're upgrading the packages we have installed, it's good practice
+to update from the sources first.
+
+This is the only way for Ubuntu to know which packages need to be upgraded:
+
+```bash
+# update packages information
+sudo apt update
+
+# upgrade the packages
+sudo apt upgrade
+```
+
+---
+
+# The Package Manager
+
+## Removing packages
+
+To remove packages from Ubuntu, we can use `apt remove` and `apt purge`.
+
+The difference between the two is that `purge` also removes configuration files.
+
+```bash
+sudo apt purge sl
 ```

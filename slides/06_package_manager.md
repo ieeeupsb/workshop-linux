@@ -22,7 +22,7 @@ going to focus on, as it's debian's package manager (the distribution Ubuntu der
 
 ## How `apt` works
 
-When you install Ubuntu, for example, it comes with the canonical's* apt sources.
+When you install Ubuntu, for example, it comes with the Canonical's* apt sources.
 
 The list of repositories, available at `/etc/apt/sources.list`, is what tells Ubuntu where
 to fetch for information about the packages that exist, and where to download them from.
@@ -33,7 +33,7 @@ To tell Ubuntu about which packages exist, we should run:
 sudo apt update
 ```
 
-\*canonical is the company behind Ubuntu
+\*Canonical is the company behind Ubuntu
 
 ---
 
