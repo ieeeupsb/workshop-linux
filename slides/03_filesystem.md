@@ -6,7 +6,7 @@ class: center, middle, inverse
 
 # Linux filesystem
 
-**Windows assigns a letter to a each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
+**Windows assigns a letter to each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
 
 **Linux does not use driver letters** in pathnames.
 
@@ -471,11 +471,11 @@ All Linux systems have a **root** user account
 - Administrator for the system. Has maximum control
 - Always assigned with UID 0
 
-Before security was a big concern, system services would run logged in as `root`
-- If an unauthorized person broke into one of those services => access to the system as the `root`
-- This must be prevented
+Before security was a big concern, system services would run logged in as `root`.
+- If an unauthorized person broke into one of those services => access to the system as the `root`;
+- This must be prevented.
 
-To solve the issue, every service running in the background has its own user account, with well defined permissions. These are known as **system accounts**
+To solve the issue, every service running in the background has its own user account, with well defined permissions. These are known as **system accounts**.
 
 ---
 
@@ -504,9 +504,9 @@ Nowadays, Linux stores user passwords in the *shadow file*, located at `/etc/sha
 - Several programs need to access `/etc/passwd` to get user information
 - The password couldn't be stored there
 
-The *shadow file* can only be accessed by special programs (e.g login program) and **root**
+The *shadow file* can only be accessed by special programs (e.g login program) and **root**.
 
-Contains one record for each user account
+Contains one record for each user account.
 
 For each record, it stores:
 - Login name
@@ -544,9 +544,8 @@ $ ls -l
 First character defines the type of object: file (`-`), directory (`d`), ...
 
 Next, we have three sets of three characters. Each set of three characters defines an access permisision triplet:
-- **r** for reading
-- **w** for writing
-- **x** for executing
+
+**r** for reading | **w** for writing | **x** for executing 
 
 When one of these permissions is denied, a dash, `-`, appears.
 
