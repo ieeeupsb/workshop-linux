@@ -1,3 +1,11 @@
+class: center, middle, inverse
+
+# Linux's shell
+# The all-mighty Bash
+
+---
+class: middle
+
 # Linux's shell
 
 The most beloved feature of Linux **is the way it's internal shell works**.
@@ -6,6 +14,7 @@ After knowing how to create, delete and copy files in Linux, we're going to look
 features of our shell: **bash**
 
 ---
+class: middle
 
 # What is bash?
 
@@ -14,6 +23,7 @@ Bash is what powers the terminal, and what makes it so beautiful.
 With it, we can do pretty much everything that we want to do.
 
 ---
+class: middle
 
 # What is bash?
 
@@ -21,9 +31,12 @@ Want to delete all pdf files in your current directory?
 
 --
 
-`rm *.pdf`
+```bash
+rm *.pdf
+```
 
 ---
+class: middle
 
 # What is bash?
 
@@ -31,9 +44,12 @@ Want to save your grade from a file full of student grades, into another file?
 
 --
 
-`cat grades.txt | grep -i "john doe" > my_grade.txt`
+```bash
+cat grades.txt | grep -i "john doe" > my_grade.txt
+```
 
 ---
+class: middle
 
 # What is bash?
 
@@ -41,11 +57,12 @@ Want to join 3 different PDF files into a single PDF?
 
 --
 
-`pdfunite f1.pdf f2.pdf f3.pdf final.pdf`
+```bash
+pdfunite f1.pdf f2.pdf f3.pdf final.pdf
+```
 
 ---
-
-# What is bash?
+class: middle
 
 These are just a few examples of what you might want to do in your day-by-day using Linux.
 

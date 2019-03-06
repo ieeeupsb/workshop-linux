@@ -441,7 +441,7 @@ head -n 5 example.txt
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # The Linux File Permissions
 

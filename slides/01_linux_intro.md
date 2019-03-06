@@ -19,7 +19,7 @@ No part is very useful by itself. Each has a specific job in a Linux system.
 
 # What is Linux?
 
-.center[<img src="../assets/linux-system.png" style="max-width:90%">]
+.center[<img src="../assets/linux-system.png" style="width:80%">]
 
 ---
 
