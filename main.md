@@ -1124,6 +1124,7 @@ cat grades.txt | grep -i "john doe"
 ```
 
 ---
+class: middle
 
 # Feature: multiplicity
 
@@ -1367,7 +1368,7 @@ systemctl list-unit-files | grep disabled
 
 ---
 
-class: middle, center, invert
+class: middle, center, inverse
 
 # The Package Manager
 

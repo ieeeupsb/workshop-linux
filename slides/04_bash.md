@@ -131,6 +131,7 @@ cat grades.txt | grep -i "john doe"
 ```
 
 ---
+class: middle
 
 # Feature: multiplicity
 
