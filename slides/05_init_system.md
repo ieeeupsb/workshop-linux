@@ -85,4 +85,64 @@ ps aux
 This will print everything that is running on your computer.
 But what if we want to explore and kill processes, interactively?
 
-For that, we can use the command `htop`
+For that, we can use `htop`, an interactive task manager.
+
+**Note**: you may need to install it on your system.
+
+---
+
+# The init system
+
+## Killing processes
+
+To kill a process, you could use `htop`, by selecting the process and pushing the keys `F9` `9` `ENTER`, sequentially.
+
+But this is a Linux workshop, and we want to be really fast at killing things.
+
+For a more effective way of terminating things in execution, use `killall`:
+
+```bash
+killall firefox
+```
+
+---
+
+# The init system
+
+## Special type of processes: daemons
+
+A daemon is a program that runs as a background process, and is manageable by your init system (enable, disable, start, checking status and stop).
+
+If you have processes that start when you turn on your computer, those are normally seen as daemons, as it was your init system that started it.
+
+A daemon is commonly also refered to as a service.
+
+---
+
+# The init system
+
+## Managing daemons with `systemctl`
+
+`systemctl` is a `systemd` utility that lets you manage services.
+
+The 5 most useful commands for `systemctl` are the following:
+
+```bash
+# start a service
+sudo systemctl start nginx.service
+
+# make the service start on boot
+sudo systemctl enable nginx.service
+
+# check the status of the service
+sudo systemctl status nginx.service
+
+# make the service don't start on boot
+sudo systemctl disable nginx.service
+
+# stop the service
+sudo systemctl stop nginx.service
+```
+
+---
+
