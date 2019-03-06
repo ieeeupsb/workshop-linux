@@ -6,7 +6,7 @@ class: center, middle, inverse
 
 # Linux filesystem
 
-**Windows assigns a letter to a each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
+**Windows assigns a letter to each physical disk drive**, e.g. `C:\`. Each drive contains its own directory structure for accessing files stored on it.
 
 **Linux does not use driver letters** in pathnames.
 
