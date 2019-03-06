@@ -528,3 +528,113 @@ Groups informations are stored in `/etc/group` file:
 - GID
 - List of user accounts that belong to the group
 
+---
+
+# Decoding the file permissions
+
+Do you recall the misterious output of `ls -l`?
+
+Now that you how Linux handles users and groups, let's decode that information.
+
+```bash
+$ ls -l
+-rw-r--r-- 1 ieee ieee 15205 mar  5 22:58 03_filesystem.md
+```
+
+First character defines the type of object: file (`-`), directory (`d`), ...
+
+Next, we have three sets of three characters. Each set of three characters defines an access permisision triplet:
+- **r** for reading
+- **w** for writing
+- **x** for executing
+
+When one of these permissions is denied, a dash, `-`, appears.
+
+Each set is related with levels of security, in the following order (left to right):
+- Owner of the object
+- The group that owns the object
+- Everyone else on the system
+
+---
+
+# Decoding the file permissions
+
+```bash
+$ ls -l
+-rw-r--r-- 1 ieee ieee 15205 mar  5 22:58 03_filesystem.md
+```
+
+The permissions string is: `rw-r--r--`
+
+- Owner has permissions `rw-`, i.e., reading and writing permission (owner has login name `ieee`)
+- The group that owns the object has permissions `r--`, thus only reading access (owner group name is `ieee`)
+- Everyone else, has only reading access
+
+---
+
+# Default file permissions
+
+The Linux kernel has default permissions for directories and files
+- Directories: `rwx` for owner, group and everyone else
+- Files: `rw-` for owner, group and everyone else
+
+However, if you create a new file, it probably doesn't have such permissions. That is because of the `umask`.
+
+Before looking at `umask` value, you need to understand the octal mode for permissions.
+
+---
+
+# Default file permissions
+## Octal mode
+
+In the octal representation, we use a 3-bit binary value for the three `rwx` permission values.
+
+Each bit is mapped to the corresponding **read**, **write** and **execute** permissions.
+
+Bits set to 1 enable the permission. Bits set to 0 disable the permission.
+
+A value such 101 enables the read and execute permissions, but disables the write permission.
+
+This binary value is then converted to octal representation, which is base 8 representation, thus each digit from a number ranges from 0 to 7.
+
+The value 7 is octal, has the binary **111**, which enables **read**, **write** and **execute** permission.
+
+But we have three sets of permissions. To represent the permissions in octal, we need three digits: one for the **owner**, one for **group** and one for **others**.
+
+---
+
+# Default file permissions
+## The 'umask'
+
+Moreover, octal numbers start with a **0**. 
+
+For instance, the number **0666**, which is the default permission set by the kernel for files, means that owner, group and everyone else has read and write permissions only.
+
+Back to the umask, if you run the command `umask` you may get a value **0022**
+- You may think this means your files, when created, have no permissions for the owner (wait, what?), and write-only permissions for the group and everyone else.
+- However, if I create a new file it will have permissions **0644**
+- In fact, that value is just a mask that affects the default kernel values for permissions
+
+---
+
+# Default file permissions
+## The 'umask'
+
+To calculate the permissions that will be set to new files and folders, we need some arithmetic
+
+.center[`<kernel default> & ~<umask>`]
+
+Example:
+- **umask** is 0022 (0b 000 010 010)
+- Negating the **umask**, we get 0755 (0b 111 101 101)
+- default kernel permission for files is 0666 (0b 110 110 110)
+- Doing the logical AND operation, we get: 0644 (0b 110 100 100)
+
+Or, just subtract the numbers :)
+
+.center[`<kernel default> - <umask>`]
+
+Example:
+- `0666 - 0022 = 0644`
+
+
