@@ -637,4 +637,42 @@ Or, just subtract the numbers :)
 Example:
 - `0666 - 0022 = 0644`
 
+---
 
+# Default file permission
+## The 'umask'
+
+You can change the umask by running, `umask <octal value>`
+
+After this, every file or directory you create in that terminal session will have the new permissions accordingly to the new **umask**. 
+
+Once you close that terminal, the new **umask** is lost.
+
+In order to set a new permanent **umask**, you must edit your shell configuration.
+- `/etc/profile`
+- For bash-shell: `.bashrc`
+
+---
+
+# Changing ownership
+
+Sometimes you may want to change permissions for an existing file.
+
+You can use `chmod`.
+
+```bash
+# generic
+$ chmod [ugo][+-][permissions] <file>
+
+# add writing permission to user
+$ chmod u+w example.txt
+
+# remove writing permission from owner
+$ chmod u-w example.txt
+
+# add reading and writing permissions to owner, group, and all other users
+$ chmod ugo+rw example.txt
+
+# use octal mode (rw-r--r--)
+$ chmod 644 example.txt
+```
