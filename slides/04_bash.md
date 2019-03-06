@@ -125,7 +125,10 @@ A pipe is a way of using the **output of a program** as the **input for another 
 
 The operator for piping is **`|`**.
 
-TODO: Example
+```bash
+# show only the lines that have "john doe"
+cat grades.txt | grep -i "john doe"
+```
 
 ---
 
