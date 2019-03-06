@@ -1,4 +1,4 @@
-class: middle, center, invert
+class: middle, center, inverse
 
 # The Package Manager
 

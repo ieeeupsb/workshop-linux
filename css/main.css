@@ -28,6 +28,16 @@ h1, h2, h3 {
 	padding-bottom:1em;
 }
 
+.inverse {
+  background: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2 {
+  color: #f3f3f3;
+  line-height: 0.8em;
+}
+
 div.column:first-of-type {float:left}
 
 .split-30 .column:first-of-type {width: 30%}

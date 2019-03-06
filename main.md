@@ -19,7 +19,7 @@ No part is very useful by itself. Each has a specific job in a Linux system.
 
 # What is Linux?
 
-.center[<img src="assets/linux-system.png" style="max-width:90%">]
+.center[<img src="assets/linux-system.png" style="width:80%">]
 
 ---
 
@@ -189,6 +189,12 @@ Examples:
 
 ---
 
+class: center, middle, invert
+
+# The manual
+
+---
+
 # The Manual
 
 Most Linux distributions include a manual for looking up information on shell commands, GNU utilities, Linux API, C libraries and functions, etc.
@@ -248,7 +254,6 @@ $ man man
 
 # The manual
 ## Tips
-
 ### Specific section pages
 
 The `man` utility provides the lowest numbered section for the searched command. This is, if the same command matches entries in different sections, only the first is shown. You can tell the desired section.
@@ -257,6 +262,11 @@ The `man` utility provides the lowest numbered section for the searched command.
 $ man 3 printf # show the printf page from section 3 (C library calls)
 ```
 
+---
+
+
+# The manual
+## Tips
 ### Lookup for manual pages
 
 The `-f` option allows `man` to display all manual pages that match the name in the input
@@ -278,7 +288,6 @@ printf (3p)          - print formatted output
 
 # The manual
 ## Tips
-
 ### Searching
 
 Sometimes you forget the exact name for a command. No problem! You can tell `man` to search and list manual pages that match your input (regular expression)
@@ -327,16 +336,14 @@ Another difference from Windows, is that Windows uses backward slashes, `\`. Lin
 
 ---
 
+# Linux filesystem
+
 The path below is an example for a file `example.txt` in the directory `Documents` which is under `ieee` directory (which is a user in this case), which is under `home` directory.
 
 ```
 /home/ieee/Documents/example.txt
 ```
 
-A tricky part in the Linux virtual directory is how it incorportares storage devices. There's a root drive which contains the virtual directory code, for example, the hard drive where you install the operating system.
-
-If you plug-in removable media or you have multiple hard drives
-
 ---
 
 # Linux filesystem
@@ -344,14 +351,13 @@ If you plug-in removable media or you have multiple hard drives
 
 | Directory | Description |
 | --------- | ----------- |
-| `/bin` | Contains the binaries, i.e, some applications and programs that you can run. There are other `/bin` directories in other parts of the file system |
-| `/boot` | Contains the boot files, the files required to start your system |
+| `/bin` | Contains the **binaries**, i.e, some applications and programs that you can run. There are other `/bin` directories in other parts of the file system |
+| `/boot` | Contains the **boot files**, the files required to start your system |
 | `/dev` | Contains the *device files*. Recall that *device files* are interfaces for *device drivers* which let applications communicate with peripherals. These files are generated on boot and even on the fly (e.g. when you plug in a webcam) |
-| `/etc` | Contains most of system configuration files |
-| `/home` | Users' personal directories. For each user typically there's a file under `/home`, like `/home/ieee` |
-| `/lib` | Libraries files, which contain code to be used by applications |
-| `/media` | This is where external storage is automatically mounted when you plug in storage devices such pendrives, extenal hard disks, etc. |
-| `/mnt` | Not often used nowadays, but this is where you would manually mount storage devices and partitions |
+| `/etc` | Contains most of **system configuration files** |
+| `/home` | **Users' personal directories**. For each user typically there's a file under `/home`, like `/home/ieee` |
+| `/lib` | **Libraries files**, which contain code to be used by applications |
+| `/media` | This is where **external storage** is automatically mounted when you plug in storage devices such pendrives, extenal hard disks, etc. |
 
 ---
 
@@ -361,11 +367,12 @@ If you plug-in removable media or you have multiple hard drives
 
 | Directory | Description |
 | --------- | ----------- |
-| `/proc` | Like `/dev` is a *virtual directory* that contains information about your PC (CPU, kernel, etc.). It's generated on boot or on the fly (things may change) |
-| `/root` | The home directory for the supersuser. You shouldn't thouch this folder |
+| `/mnt` | Not often used nowadays, but this is where you would manually mount storage devices and partitions |
+| `/proc` | Like `/dev` is a *virtual directory* that contains **information about your PC** (CPU, kernel, etc.). It's generated on boot or on the fly (things may change) |
+| `/root` | The **home directory for the supersuser**. You shouldn't thouch this folder |
 | `/sys` | Another *virtual directory* which also contains informations from devices connected to the computer |
-| `/tmp`| Contains temporary files |
-| `/var` | Intended to be a folder containing content which changes frequently, altough the virtual directories mentioned also change frequently, thus it's not a great folder name nowadays. Nevertheless, this is where you can find system and application logs |
+| `/tmp`| Contains **temporary files** |
+| `/var` | Intended to be a folder containing **content which changes frequently**, altough the virtual directories mentioned also change frequently, thus it's not a great folder name nowadays. Nevertheless, this is where you can find **system and application logs** |
 
 ---
 
@@ -490,9 +497,6 @@ A parte dos devices tem haver com device files
 ## Listing files and directories
 
 **Tip**: You can mix options parameters like `ls -l -a -R`. Moreover, you don't need to type them separately, you can use `ls -laR`.
-
-// TODO: talk about wildcards?
-// TODO: Falar já de tab autocomplete?
 
 ---
 
@@ -755,7 +759,7 @@ head -n 5 example.txt
 
 ---
 
-class: middle, center
+class: middle, center, inverse
 
 # The Linux File Permissions
 
@@ -945,9 +949,55 @@ Or, just subtract the numbers :)
 Example:
 - `0666 - 0022 = 0644`
 
+---
 
+# Default file permission
+## The 'umask'
+
+You can change the umask by running, `umask <octal value>`
+
+After this, every file or directory you create in that terminal session will have the new permissions accordingly to the new **umask**. 
+
+Once you close that terminal, the new **umask** is lost.
+
+In order to set a new permanent **umask**, you must edit your shell configuration.
+- `/etc/profile`
+- For bash-shell: `.bashrc`
 
 ---
+
+# Changing ownership
+
+Sometimes you may want to change permissions for an existing file.
+
+You can use `chmod`.
+
+```bash
+# generic
+$ chmod [ugo][+-][permissions] <file>
+
+# add writing permission to user
+$ chmod u+w example.txt
+
+# remove writing permission from owner
+$ chmod u-w example.txt
+
+# add reading and writing permissions to owner, group, and all other users
+$ chmod ugo+rw example.txt
+
+# use octal mode (rw-r--r--)
+$ chmod 644 example.txt
+```
+
+---
+
+class: center, middle, inverse
+
+# Linux's shell
+# The all-mighty Bash
+
+---
+class: middle
 
 # Linux's shell
 
@@ -957,6 +1007,7 @@ After knowing how to create, delete and copy files in Linux, we're going to look
 features of our shell: **bash**
 
 ---
+class: middle
 
 # What is bash?
 
@@ -965,6 +1016,7 @@ Bash is what powers the terminal, and what makes it so beautiful.
 With it, we can do pretty much everything that we want to do.
 
 ---
+class: middle
 
 # What is bash?
 
@@ -972,9 +1024,12 @@ Want to delete all pdf files in your current directory?
 
 --
 
-`rm *.pdf`
+```bash
+rm *.pdf
+```
 
 ---
+class: middle
 
 # What is bash?
 
@@ -982,9 +1037,12 @@ Want to save your grade from a file full of student grades, into another file?
 
 --
 
-`cat grades.txt | grep -i "john doe" > my_grade.txt`
+```bash
+cat grades.txt | grep -i "john doe" > my_grade.txt
+```
 
 ---
+class: middle
 
 # What is bash?
 
@@ -992,11 +1050,12 @@ Want to join 3 different PDF files into a single PDF?
 
 --
 
-`pdfunite f1.pdf f2.pdf f3.pdf final.pdf`
+```bash
+pdfunite f1.pdf f2.pdf f3.pdf final.pdf
+```
 
 ---
-
-# What is bash?
+class: middle
 
 These are just a few examples of what you might want to do in your day-by-day using Linux.
 
@@ -1059,9 +1118,13 @@ A pipe is a way of using the **output of a program** as the **input for another 
 
 The operator for piping is **`|`**.
 
-TODO: Example
+```bash
+# show only the lines that have "john doe"
+cat grades.txt | grep -i "john doe"
+```
 
 ---
+class: middle
 
 # Feature: multiplicity
 
@@ -1305,7 +1368,7 @@ systemctl list-unit-files | grep disabled
 
 ---
 
-class: middle, center, invert
+class: middle, center, inverse
 
 # The Package Manager
 
