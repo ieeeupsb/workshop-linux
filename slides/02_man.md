@@ -1,3 +1,9 @@
+class: center, middle, invert
+
+# The manual
+
+---
+
 # The Manual
 
 Most Linux distributions include a manual for looking up information on shell commands, GNU utilities, Linux API, C libraries and functions, etc.
@@ -57,7 +63,6 @@ $ man man
 
 # The manual
 ## Tips
-
 ### Specific section pages
 
 The `man` utility provides the lowest numbered section for the searched command. This is, if the same command matches entries in different sections, only the first is shown. You can tell the desired section.
@@ -66,6 +71,11 @@ The `man` utility provides the lowest numbered section for the searched command.
 $ man 3 printf # show the printf page from section 3 (C library calls)
 ```
 
+---
+
+
+# The manual
+## Tips
 ### Lookup for manual pages
 
 The `-f` option allows `man` to display all manual pages that match the name in the input
@@ -87,7 +97,6 @@ printf (3p)          - print formatted output
 
 # The manual
 ## Tips
-
 ### Searching
 
 Sometimes you forget the exact name for a command. No problem! You can tell `man` to search and list manual pages that match your input (regular expression)
