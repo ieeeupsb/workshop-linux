@@ -1,6 +1,6 @@
 class: center, middle, invert
 
-# The manual
+# The Manual
 
 ---
 
@@ -61,7 +61,7 @@ $ man man
 
 ---
 
-# The manual
+# The Manual
 ## Tips
 ### Specific section pages
 
@@ -74,7 +74,7 @@ $ man 3 printf # show the printf page from section 3 (C library calls)
 ---
 
 
-# The manual
+# The Manual
 ## Tips
 ### Lookup for manual pages
 
@@ -95,7 +95,7 @@ printf (3p)          - print formatted output
 
 ---
 
-# The manual
+# The Manual
 ## Tips
 ### Searching
 
@@ -107,7 +107,7 @@ $ man -k printf
 
 ---
 
-# The manual
+# The Manual
 ## Tips
 
 ### Simplified man pages

@@ -8,7 +8,7 @@ class: middle
 
 # Linux's shell
 
-The most beloved feature of Linux **is the way it's internal shell works**.
+The most beloved feature of Linux **is the way its internal shell works**.
 
 After knowing how to create, delete and copy files in Linux, we're going to look into more advanced
 features of our shell: **bash**
