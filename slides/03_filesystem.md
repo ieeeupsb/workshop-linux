@@ -96,9 +96,9 @@ Assume **you are in the `current` directory.**
 In order to go to the upper level, `parent` directory:
 
 ```bash
-$ pwd # /.../parent/current
+$ pwd # /(...)/parent/current
 $ cd ..
-$ pwd # /.../parent
+$ pwd # /(...)/parent
 ```
 
 **Tip** : Use `pwd` to know your current absolute path
